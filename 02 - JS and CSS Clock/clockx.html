@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gregor's JS + CSS Clock</title>
+</head>
+<body>
+
+
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+      </div>
+    </div>
+
+
+  <style>
+    html {
+      background: radial-gradient(rgba(128, 0, 128, 1), rgb(195, 103, 195));
+      font-family:'helvetica neue';
+      text-align: center;
+      font-size: 10px;
+    }
+
+    body {
+      margin: 0;
+      font-size: 2rem;
+      display:flex;
+      flex:1;
+      min-height: 100vh;
+      align-items: center;
+    }
+
+    .clock {
+      width: 30rem;
+      height: 30rem;
+      border:20px solid #e5e0e5;
+      border-radius:50%;
+      margin:50px auto;
+      position: relative;
+      padding:2rem;
+      box-shadow:
+        0 0 0 4px rgba(0,0,0,0.1),
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .clock-face {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-3px); /* account for the height of the clock hands */
+    }
+
+    .hand {
+      width:50%;
+      height:6px;
+      background:#c8aece;
+      position: absolute;
+		transform-origin: 100%;
+		transform: rotate(90deg);
+		/*transition: all 0.05s;*/
+		transition-timing-function: cubic-bexier(0.1, 2.7, 0.58, 1);
+      top:50%;
+    }
+	.hour-hand  {
+		width:35%;
+		margin-left: 15%;
+	  }
+	  .second-hand {
+		width:50%;
+      	height:3px;
+		  margin-right: 10%;
+		background: pink;
+		  
+	  }
+  </style>
+
+  <script>
+const hourHand = document.querySelector(".hour-hand");
+const minuteHand = document.querySelector(".min-hand");	  
+const secondHand = document.querySelector(".second-hand");	  
+
+	  function setDate() {
+		  const now = new Date();
+		  const seconds = now.getSeconds();
+		  const secondDeg = (seconds * 6) +90;
+		  secondHand.style.transform =`rotate(${secondDeg}deg)`;
+
+		  const minutes = now.getMinutes();
+		  const mindDeg = ((minutes / 60) * 360) + 90;
+		  const adjustHr = ((minutes / 12) * 5) ;
+		  minuteHand.style.transform =`rotate(${mindDeg}deg)`;
+		  
+		  const hours = now.getHours();
+		  const hourDeg = ((hours / 12) * 360) - 270;
+		  hourHand.style.transform =`rotate(${hourDeg + adjustHr}deg)`;
+		  console.log(hourDeg);
+		  console.log(adjustHr);
+		  console.log(hourDeg + adjustHr)
+		   
+	  };
+	  
+ setInterval(setDate, 1000);
+  </script>
+</body>
+</html>
