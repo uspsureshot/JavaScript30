@@ -15,69 +15,69 @@
       </div>
     </div>
 
+<style>
+	html {
+	  background: radial-gradient(rgba(128, 0, 128, 1), rgb(195, 103, 195));
+	  font-family:'helvetica neue';
+	  text-align: center;
+	  font-size: 10px;
+	}
 
-  <style>
-    html {
-      background: radial-gradient(rgba(128, 0, 128, 1), rgb(195, 103, 195));
-      font-family:'helvetica neue';
-      text-align: center;
-      font-size: 10px;
-    }
+	body {
+	  margin: 0;
+	  font-size: 2rem;
+	  display:flex;
+	  flex:1;
+	  min-height: 100vh;
+	  align-items: center;
+	}
 
-    body {
-      margin: 0;
-      font-size: 2rem;
-      display:flex;
-      flex:1;
-      min-height: 100vh;
-      align-items: center;
-    }
+	.clock {
+	  width: 30rem;
+	  height: 30rem;
+	  border:20px solid #e5e0e5;
+	  border-radius:50%;
+	  margin:50px auto;
+	  position: relative;
+	  padding:2rem;
+	  box-shadow:
+		0 0 0 4px rgba(0,0,0,0.1),
+		inset 0 0 0 3px #EFEFEF,
+		inset 0 0 10px black,
+		0 0 10px rgba(0,0,0,0.2);
+	}
 
-    .clock {
-      width: 30rem;
-      height: 30rem;
-      border:20px solid #e5e0e5;
-      border-radius:50%;
-      margin:50px auto;
-      position: relative;
-      padding:2rem;
-      box-shadow:
-        0 0 0 4px rgba(0,0,0,0.1),
-        inset 0 0 0 3px #EFEFEF,
-        inset 0 0 10px black,
-        0 0 10px rgba(0,0,0,0.2);
-    }
+	.clock-face {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transform: translateY(-3px); /* account for the height of the clock hands */
+}	
 
-    .clock-face {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform: translateY(-3px); /* account for the height of the clock hands */
-    }
-
-    .hand {
-      width:50%;
-      height:6px;
-      background:#c8aece;
-      position: absolute;
+	.hand {
+		width:50%;
+		height:6px;
+		background:#c8aece;
+		position: absolute;
 		transform-origin: 100%;
 		transform: rotate(90deg);
-		/*transition: all 0.05s;*/
 		transition-timing-function: cubic-bexier(0.1, 2.7, 0.58, 1);
-      top:50%;
-    }
+		top:50%;
+		border-top-left-radius: 40%;
+		border-bottom-left-radius: 40%;
+	}
 	.hour-hand  {
 		width:35%;
 		margin-left: 15%;
 	  }
 	  .second-hand {
 		width:50%;
-      	height:3px;
-		  margin-right: 10%;
+		margin: 1px 0;
+		height:2px;
 		background: pink;
-		  
+
 	  }
-  </style>
+</style>
 
   <script>
 const hourHand = document.querySelector(".hour-hand");
