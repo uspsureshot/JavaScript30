@@ -15,6 +15,7 @@ ctx.strokeStyle = '#BADA55';
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = 100;
+ctx.globalCompositeOperation = 'multiply';
 // ctx.globalCompositeOperation = 'multiply';
 
 let isDrawing = false;
@@ -49,7 +50,7 @@ function draw(e) {
     ctx.lineWidth--;
   }
 
-}
+};
 
 canvas.addEventListener('mousedown', (e) => {
   isDrawing = true;
